@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 interface IButton {
-  label: string
+  children: string
   buttonType: "number" | "operator" | "function"
-  width?: string
+  style?: React.CSSProperties
 }
 
 const StyledButton = styled.button<IButton>`
@@ -16,27 +16,27 @@ const StyledButton = styled.button<IButton>`
 
   color: ${(props) =>
     props.buttonType === "function" ? "#000000" : "#ffffff"};
-  width: ${(props) => (props.width ? props.width : "3rem")};
   height: 3rem;
   border: none;
-  border-radius: 50%;
+  border-radius: 1.5rem;
   font-size: 1.5rem;
-  line-height: 3rem;
+  line-height: 1;
   text-align: center;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  display inline-flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     opacity: 0.8;
   }
 `
-const Button = ({ label, buttonType }: IButton) => {
+const Button = ({ children, buttonType, style }: IButton) => {
   return (
-    <>
-      <StyledButton buttonType={buttonType} type="button">
-        {label}
-      </StyledButton>
-    </>
+    <StyledButton buttonType={buttonType} type="button" style={style}>
+      {children}
+    </StyledButton>
   )
 }
 

@@ -4,6 +4,10 @@ const StyledInput = styled.input`
   background-color: transparent;
   border: none;
   font-size: 3vw;
+  text-align: right;
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
 
   &:focus,
   &:hover,
